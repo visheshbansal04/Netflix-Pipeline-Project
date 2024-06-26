@@ -1,12 +1,12 @@
-# Use a base image with Java and Tomcat
-FROM tomcat:9-jdk17
+# Use an official Tomcat runtime as a parent image
+FROM tomcat:9.0.90-jdk17
 
-# Set the working directory to the Tomcat webapps directory
-WORKDIR /home/ec2-user/apache-tomcat-9.0.90/webapps/
+# Set the working directory
+WORKDIR /usr/local/tomcat
 
-# Copy the .jsp and .css files into the webapps directory
-COPY webapp/*.jsp ./
-COPY webapp/*.css ./
+# Copy the current directory contents into the container at /usr/local/tomcat/webapps/
+COPY . /usr/local/tomcat/webapps/netflix/
 
-# Expose port 8080 to the host
-EXPOSE 8080
+# Expose port 8080 to the outside world
+EXPOSE 9090
+
