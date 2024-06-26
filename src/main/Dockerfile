@@ -2,11 +2,10 @@
 FROM tomcat:9.0.90-jdk17
 
 # Set the working directory
-WORKDIR /usr/local/tomcat
+WORKDIR /var/lib/jenkins/workspace/Docker/
 
 # Copy the current directory contents into the container at /usr/local/tomcat/webapps/
-COPY webapp/*.jsp /usr/local/tomcat/webapps/Netflix-Pipeline-Project/
-COPY webapp/*.css /usr/local/tomcat/webapps/Netflix-Pipeline-Project/
+COPY src/main/webapp /usr/local/tomcat/webapps/Netflix-Pipeline-Project/
 
 # Expose port 8080 to the outside world
 EXPOSE 9090
