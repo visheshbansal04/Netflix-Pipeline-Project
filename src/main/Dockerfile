@@ -1,11 +1,8 @@
-# Use an official Tomcat runtime as a parent image
+# Use the official Tomcat 9 image with JDK 17
 FROM tomcat:9.0.90-jdk17
 
-# Set the working directory
-WORKDIR /var/lib/jenkins/workspace/Docker/src/main
+# Set the working directory inside the container
+WORKDIR /usr/local/tomcat
 
-# Copy the current directory contents into the container at /usr/local/tomcat/webapps/
+# Copy the web application (JSP and CSS) files into the Tomcat webapps directory
 COPY src/main/webapp /usr/local/tomcat/webapps/Netflix-Pipeline-Project/
-
-# Expose port 8080 to the outside world
-EXPOSE 9090
