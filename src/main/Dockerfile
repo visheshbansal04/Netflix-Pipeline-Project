@@ -2,4 +2,4 @@
 FROM tomcat:9.0.90-jdk17
 
 # Copy the web application (JSP and CSS) files into the Tomcat webapps directory
-COPY /var/lib/jenkins/workspace/Docker/src/main/webapp /home/ec2-user/apache-tomcat-9.0.90/webapps/Netflix-Pipeline-Project/
+COPY /var/lib/jenkins/workspace/Docker/src/main /home/ec2-user/apache-tomcat-9.0.90/webapps/Netflix-Pipeline-Project/
