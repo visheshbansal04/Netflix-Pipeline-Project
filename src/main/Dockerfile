@@ -2,7 +2,7 @@
 FROM tomcat:9.0
 
 # Copy the application files to the webapps directory in Tomcat
-COPY /var/lib/jenkins/workspace/New Project/src/main/webapp/ /home/ec2-user/apache-tomcat-10.1.25/webapps/
+COPY ./webapp/ /user/local/tomcat/webapps/
 
 # Expose port 9090 for Tomcat
 EXPOSE 9090
