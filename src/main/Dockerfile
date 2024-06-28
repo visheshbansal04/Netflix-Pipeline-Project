@@ -1,11 +1,14 @@
-# Use the official Tomcat base image
+# Start with a base Tomcat image
 FROM tomcat:9.0
 
-# Copy the application files to the webapps directory in Tomcat
-COPY ./webapp/ /home/ec2-user/apache-tomcat-10.1.25/webapps/
+# Remove the default Tomcat webapps
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Expose port 9090 for Tomcat
+# Copy your application directory into Tomcat webapps directory
+COPY /var/lib/jenkins/workspace/New\ Project/src/main/webapp/ /usr/local/tomcat/webapps/ROOT/
+
+# Expose Tomcat port (adjusting to 9090 as Tomcat default)
 EXPOSE 9090
 
-# Start Tomcat server
+# Start Tomcat
 CMD ["catalina.sh", "run"]
